@@ -9,8 +9,8 @@ const circleRadiurs = 20;
 let circleX = circleRadiurs;
 let circleY = circleRadiurs;
 
-let circleSpeedX = 20;
-let circleSpeedY = 20;
+let circleSpeedX = 10;
+let circleSpeedY = 10;
 
 const PADDLE_WIDTH = 100;
 const PADDLE_HEIGHT = 10;
@@ -31,21 +31,25 @@ const gameLoop = () => {
 
   if (circleX < 0) {
     circleX = 0;
-    circleSpeedX += 5;
     circleSpeedX *= -1;
   } else if (circleX > canvas.clientWidth) {
     circleX = canvas.clientWidth;
-    circleSpeedX += 5;
     circleSpeedX *= -1;
   }
 
   if (circleY < 0) {
     circleY = 0;
-    circleSpeedY += 5;
     circleSpeedY *= -1;
   } else if (circleY > canvas.clientHeight) {
-    circleY = canvas.clientHeight;
-    circleSpeedY += 5;
+    ballReset();
+  }
+
+  if (
+    circleX > paddleX &&
+    circleX < paddleX + PADDLE_WIDTH &&
+    circleY > paddleY &&
+    circleY < paddleY + PADDLE_HEIGHT
+  ) {
     circleSpeedY *= -1;
   }
 
@@ -67,6 +71,12 @@ const drawCircle = (x, y) => {
   canvasContext.beginPath();
   canvasContext.arc(circleX, circleY, circleRadiurs, 0, Math.PI * 2);
   canvasContext.fill();
+}
+
+const ballReset = () => {
+  console.log('Oh shit!');
+  circleX = canvas.clientWidth / 2;
+  circleY = canvas.clientHeight / 2;
 }
 
 gameLoop();
