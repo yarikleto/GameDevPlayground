@@ -3,7 +3,7 @@ const canvasContext = canvas.getContext('2d');
 
 const generateBrickSMap = (count) => {
   const maxRowSize = Math.trunc(canvas.clientWidth / BRICK_WIDTH);
-
+  console.log(maxRowSize)
   const rowCount = Math.ceil(count / maxRowSize);
 
   const map = [];
