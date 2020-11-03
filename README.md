@@ -1,4 +1,4 @@
 # GameDevPlayground
 
 
-[Click here](https://alfimois.github.io/GameDevPlayground/)
+[Click here](https://yarikleto.github.io/GameDevPlayground/)
